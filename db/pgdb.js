@@ -7,7 +7,8 @@ const pgdb = knex({
         user : process.env.PG_USER,
         password : process.env.PG_PASSWORD,
         database : process.env.PG_DATABASE,
-        ssl: true
+        port: process.env.PG_PORT || 5432,
+        ssl: process.env.PG_PORT ? false : true 
     }
 })
 module.exports.pgdb = pgdb
